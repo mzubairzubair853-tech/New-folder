@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teacher - Attendance</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.compact-card{padding:12px 15px !important;}
+.compact-row{display:flex; gap:8px; align-items:center; margin:8px 0;}
+.compact-row select{flex:1; padding:10px 8px !important; margin:0 !important; font-size:13px !important;}
+.compact-row input{flex:1; margin:0 !important; padding:10px 8px !important; font-size:13px !important;}
+.btn-small{padding:10px 8px !important; font-size:13px !important; margin:0 !important; flex:1; white-space:nowrap;}
+.btn-small2{padding:10px 8px !important; font-size:13px !important; margin:0 !important; width:auto; min-width:110px;}
+</style>
+</head>
+<body>
+
+<div id="refreshLoader">
+  <img src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif" alt="Funny Cat Meme">
+  <h2>Refreshing... 😹</h2>
+  <p>Please wait, attendance is loading...</p>
+  <div class="loader-dots">● ● ●</div>
+</div>
+
+<div id="toast"></div>
+
+<div class="header teacher-header">
+  <h2>👨‍🏫 Teacher Portal</h2>
+  <p id="todayDate"></p>
+  <div id="todayStatus" class="status-box"></div>
+</div>
+
+<div class="card compact-card">
+  <h3 style="margin:0;">➕ Add New Student</h3>
+  <div class="compact-row">
+    <input type="text" id="newStudentName" placeholder="Enter Student Name">
+    <input type="text" id="newStudentRoll" placeholder="Roll No">
+    <button class="btn-save btn-small2" onclick="addStudent()">➕ Add</button>
+  </div>
+</div>
+
+<!-- FIX ONE STUDENT - FIXED VERSION -->
+<div class="card compact-card" style="border:1.5px solid #00b09b;">
+  <h3 style="margin:0; color:#00b09b; font-size:15px;">📝 Fix Attendance - Add / Remove 1 Lecture</h3>
+  <p style="margin:4px 0; font-size:12px; color:#666;">Sirf 1 Student ki, Sirf 1 Subject ki attendance change hogi. Baqi sab safe.</p>
+  <div class="compact-row">
+    <select id="fixSubjectSelect" onchange="updateFixInfo()">
+      <option value="ICT">ICT</option>
+      <option value="Programming">Programming</option>
+      <option value="English">English</option>
+      <option value="Math">Math</option>
+      <option value="Physics">Physics</option>
+    </select>
+    <select id="fixStudentSelect" onchange="updateFixInfo()">
+      <option value="">-- Select Student --</option>
+    </select>
+    <select id="fixStatusSelect" onchange="updateFixInfo()">
+      <option value="P">Present ✅</option>
+      <option value="A">Absent ❌</option>
+    </select>
+  </div>
+  <div class="compact-row">
+    <button class="btn-small" style="background:#00c853;" onclick="addOneLecture()">➕ Add 1 Lecture</button>
+    <button class="btn-small" style="background:#ff1744;" onclick="removeOneLecture()">➖ Remove 1 Lecture</button>
+  </div>
+  <p id="fixInfo" style="margin:0; font-size:13px; font-weight:bold; background:#e8f5e9; padding:8px; border-radius:8px; text-align:center;">Select Student to see his attendance</p>
+</div>
+
+<div class="card compact-card" style="border:1.5px solid #ff1744;">
+  <h3 style="margin:0; color:#ff1744; font-size:15px;">⚠️ Reset Attendance</h3>
+  <div class="compact-row">
+    <select id="resetStudentSelect">
+      <option value="">-- Select Student To Reset --</option>
+    </select>
+  </div>
+  <div class="compact-row">
+    <button class="btn-small" style="background:#ff9800;" onclick="resetOneStudent()">🔄 Reset Selected</button>
+    <button class="btn-small" style="background:#ff1744;" onclick="resetAllAttendance()">🗑️ Reset All</button>
+  </div>
+</div>
+
+<div class="card">
+  <h3>📚 Select Subject</h3>
+  <select id="subjectSelect" onchange="changeSubject()">
+    <option value="ICT">ICT</option>
+    <option value="Programming">Programming</option>
+    <option value="English">English</option>
+    <option value="Math">Math</option>
+    <option value="Physics">Physics</option>
+  </select>
+  <h3 id="subjectTitle">BSIT - ICT - Section A</h3>
+  <p id="lectureInfo" style="background:#e3f2fd; padding:10px; border-radius:10px; font-weight:bold;">Lecture No: 1 - New Lecture</p>
+  <div id="studentList"></div>
+  <button class="btn-save" onclick="saveAttendance()">✅ Save This Lecture - Add To History</button>
+  <button class="btn-refresh" onclick="startNewLecture()">🆕 Start New Lecture</button>
+  <button class="btn-refresh" onclick="refreshToday()">🔄 Refresh - Only Reload, No Delete</button>
+  <button class="btn-back" onclick="goHome()">🏠 Back</button>
+</div>
+
+<div class="card">
+  <h3>📜 Previous History - <span id="historySubject">ICT</span></h3>
+  <p style="color:#666; font-size:13px;">All old lectures of this subject will show here. Nothing will be deleted.</p>
+  <div id="historyList"></div>
+</div>
+
+<script src="js/app.js"></script>
+<script>loadTeacherPage();</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+*{font-family:'Segoe UI',Arial; box-sizing:border-box}
+body{margin:0; background:#f0f2f5; padding-bottom:30px}
+.header{color:white; padding:30px 20px; border-radius:0 0 30px 30px; text-align:center}
+.teacher-header{background:linear-gradient(135deg,#4a00e0,#8e2de2)}
+.student-header{background:linear-gradient(135deg,#00b09b,#96c93d)}
+.login-container{background:white; max-width:400px; margin:40px auto; padding:30px; border-radius:25px; text-align:center; box-shadow:0 10px 30px #ccc}
+.logo{font-size:60px}
+input{width:100%; padding:14px; margin:10px 0; border:1px solid #ddd; border-radius:12px; font-size:16px}
+button{width:100%; padding:14px; margin:8px 0; border:none; border-radius:12px; font-size:16px; font-weight:bold; cursor:pointer; color:white}
+.btn-teacher{background:linear-gradient(135deg,#4a00e0,#8e2de2)}
+.btn-student{background:linear-gradient(135deg,#00b09b,#96c93d)}
+.card{background:white; margin:15px; padding:20px; border-radius:20px; box-shadow:0 5px 20px #ddd}
+.student-row{display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid #eee}
+.btnP{background:#00c853; width:55px; padding:10px; opacity:0.4}
+.btnA{background:#ff1744; width:55px; padding:10px; opacity:0.4}
+.btnP.active, .btnA.active{opacity:1; outline:3px solid #333; outline-offset:2px}
+.btn-save{background:linear-gradient(135deg,#4a00e0,#8e2de2)}
+.btn-refresh{background:#ff9800}
+.btn-back{background:#666}
+.circle{width:160px; height:160px; background:#f9f9f9; border-radius:50%; margin:15px auto; display:flex; flex-direction:column; justify-content:center; box-shadow:0 5px 15px #ccc}
+.row{display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid #eee}
+.status-box{padding:12px; border-radius:12px; background:white; color:#333; font-weight:bold; margin-top:10px}
+.hint{color:#888; font-size:13px}
+.progress-bg{width:100%; height:18px; background:#eee; border-radius:20px; overflow:hidden; margin:15px 0}
+.progress-fill{height:100%; background:green; border-radius:20px; transition:0.5s}
+select{width:100%; padding:14px; border-radius:12px; border:1px solid #ddd; font-size:16px}
+#toast{display:none; position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#333; color:white; padding:12px 20px; border-radius:30px; z-index:10000; font-size:14px; font-weight:bold; box-shadow:0 5px 20px rgba(0,0,0,0.3); text-align:center; max-width:90%}
+#refreshLoader{display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:white; z-index:9999; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:20px}
+#refreshLoader img{width:240px; height:240px; border-radius:20px; object-fit:cover}
+#refreshLoader h2{margin:10px 0 5px 0; font-size:24px}
+.loader-dots{font-size:28px; animation: blink 1s infinite}
+@keyframes blink{ 0%{opacity:0.2} 50%{opacity:1} 100%{opacity:0.2} }

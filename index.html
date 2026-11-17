@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attendance Portal - BGNU</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="login-container">
+  <div class="logo">🎓</div>
+  <h1>Attendance Portal</h1>
+  <p>BGNU University System</p>
+  <div id="toast" style="position:static; margin:10px 0;"></div>
+  <input type="text" id="userName" placeholder="Enter Your Name">
+  <input type="password" id="userPass" placeholder="Enter Your Password">
+  <button class="btn-teacher" onclick="loginAsTeacher()">👨‍🏫 Teacher Login</button>
+  <button class="btn-student" onclick="loginAsStudent()">🎓 Student Login</button>
+  <p class="hint">Teacher Password: 1234</p>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
